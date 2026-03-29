@@ -17,11 +17,11 @@ p6df::modules::signadot::deps() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::signadot::external::brew()
+# Function: p6df::modules::signadot::external::brews()
 #
 #>
 ######################################################################
-p6df::modules::signadot::external::brew() {
+p6df::modules::signadot::external::brews() {
 
   p6df::core::homebrew::cli::brew::install signadot/signadot-cli/signadot-cli
 
