@@ -31,63 +31,16 @@ p6df::modules::signadot::external::brews() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::signadot::profile::on(profile, code)
-#
-#  Args:
-#	profile -
-#	code - shell code block (export SIGNADOT_API_KEY=...)
-#
-#  Environment:	 P6_DFZ_PROFILE_SIGNADOT SIGNADOT_API_KEY
-#>
-######################################################################
-p6df::modules::signadot::profile::on() {
-  local profile="$1"
-  local code="$2"
-
-  p6_run_code "$code"
-
-  p6_env_export "P6_DFZ_PROFILE_SIGNADOT" "$profile"
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::signadot::profile::off(code)
-#
-#  Args:
-#	code - shell code block previously passed to profile::on
-#
-#  Environment:	 P6_DFZ_PROFILE_SIGNADOT SIGNADOT_API_KEY
-#>
-######################################################################
-p6df::modules::signadot::profile::off() {
-  local code="$1"
-
-  p6_env_unset_from_code "$code"
-  p6_env_export_un P6_DFZ_PROFILE_SIGNADOT
-
-  p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: str str = p6df::modules::signadot::prompt::mod()
+# Function: str str = p6df::modules::signadot::profile::mod()
 #
 #  Returns:
 #	str - str
 #
-#  Environment:	 P6_DFZ_PROFILE_SIGNADOT
 #>
 ######################################################################
-p6df::modules::signadot::prompt::mod() {
+p6df::modules::signadot::profile::mod() {
 
   local str
-  if p6_string_blank_NOT "$P6_DFZ_PROFILE_SIGNADOT"; then
-    str="signadot:\t  $P6_DFZ_PROFILE_SIGNADOT"
-  fi
 
   p6_return_str "$str"
 }
@@ -101,6 +54,8 @@ p6df::modules::signadot::prompt::mod() {
 ######################################################################
 p6df::modules::signadot::aliases::init() {
 
+  local _module="$1"
+  local _dir="$2"
   p6_alias "sdsl"  "p6df::modules::signadot::sandbox::list"
   p6_alias "sdsg"  "p6df::modules::signadot::sandbox::get"
   p6_alias "sdsa"  "p6df::modules::signadot::sandbox::apply"
@@ -228,22 +183,3 @@ p6df::modules::signadot::cluster::list() {
   p6_return_void
 }
 
-######################################################################
-#<
-#
-# Function: p6df::modules::signadot::init(_module, dir)
-#
-#  Args:
-#	_module -
-#	dir -
-#
-#>
-######################################################################
-p6df::modules::signadot::init() {
-  local _module="$1"
-  local dir="$2"
-
-  p6_bootstrap "$dir"
-
-  p6_return_void
-}
