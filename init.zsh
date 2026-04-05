@@ -17,6 +17,30 @@ p6df::modules::signadot::deps() {
 ######################################################################
 #<
 #
+# Function: p6df::modules::signadot::aliases::init()
+#
+#>
+######################################################################
+p6df::modules::signadot::aliases::init() {
+
+  local _module="$1"
+  local _dir="$2"
+  p6_alias "sdsl"  "p6df::modules::signadot::sandbox::list"
+  p6_alias "sdsg"  "p6df::modules::signadot::sandbox::get"
+  p6_alias "sdsa"  "p6df::modules::signadot::sandbox::apply"
+  p6_alias "sdsd"  "p6df::modules::signadot::sandbox::delete"
+
+  p6_alias "sdrgl" "p6df::modules::signadot::routegroup::list"
+  p6_alias "sdrgg" "p6df::modules::signadot::routegroup::get"
+
+  p6_alias "sdcl"  "p6df::modules::signadot::cluster::list"
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
 # Function: p6df::modules::signadot::external::brews()
 #
 #>
@@ -43,30 +67,6 @@ p6df::modules::signadot::profile::mod() {
   local str
 
   p6_return_str "$str"
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::signadot::aliases::init()
-#
-#>
-######################################################################
-p6df::modules::signadot::aliases::init() {
-
-  local _module="$1"
-  local _dir="$2"
-  p6_alias "sdsl"  "p6df::modules::signadot::sandbox::list"
-  p6_alias "sdsg"  "p6df::modules::signadot::sandbox::get"
-  p6_alias "sdsa"  "p6df::modules::signadot::sandbox::apply"
-  p6_alias "sdsd"  "p6df::modules::signadot::sandbox::delete"
-
-  p6_alias "sdrgl" "p6df::modules::signadot::routegroup::list"
-  p6_alias "sdrgg" "p6df::modules::signadot::routegroup::get"
-
-  p6_alias "sdcl"  "p6df::modules::signadot::cluster::list"
-
-  p6_return_void
 }
 
 ######################################################################
