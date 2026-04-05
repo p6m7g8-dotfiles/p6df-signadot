@@ -1,5 +1,11 @@
 # shellcheck shell=bash
 ######################################################################
+#<
+#
+# Function: p6df::modules::signadot::deps()
+#
+#>
+######################################################################
 p6df::modules::signadot::deps() {
 
   # shellcheck disable=2034
@@ -8,6 +14,12 @@ p6df::modules::signadot::deps() {
   )
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::signadot::aliases::init()
+#
+#>
 ######################################################################
 p6df::modules::signadot::aliases::init() {
 
@@ -27,6 +39,12 @@ p6df::modules::signadot::aliases::init() {
 }
 
 ######################################################################
+#<
+#
+# Function: p6df::modules::signadot::external::brews()
+#
+#>
+######################################################################
 p6df::modules::signadot::external::brews() {
 
   p6df::core::homebrew::cli::brew::install signadot/signadot-cli/signadot-cli
@@ -34,26 +52,6 @@ p6df::modules::signadot::external::brews() {
   p6_return_void
 }
 
-######################################################################
-p6df::modules::signadot::profile::mod() {
-
-  local str
-
-  p6_return_str "$str"
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::signadot::deps()
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::signadot::external::brews()
-#
-#>
 ######################################################################
 #<
 #
@@ -64,11 +62,13 @@ p6df::modules::signadot::profile::mod() {
 #
 #>
 ######################################################################
-#<
-#
-# Function: p6df::modules::signadot::aliases::init()
-#
-#>
+p6df::modules::signadot::profile::mod() {
+
+  local str
+
+  p6_return_str "$str"
+}
+
 ######################################################################
 #<
 #
